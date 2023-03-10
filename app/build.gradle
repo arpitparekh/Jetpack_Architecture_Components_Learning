@@ -6,12 +6,12 @@ apply plugin: 'kotlin-kapt'
 
 android {
     namespace 'com.example.newandroidkotlinmodule'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.newandroidkotlinmodule"
         minSdk 26
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -61,6 +61,16 @@ dependencies {
 
     //glide
     implementation 'com.github.bumptech.glide:glide:4.15.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.0'
+    kapt 'com.github.bumptech.glide:compiler:4.15.0'
+
+    //room
+    def room_version = "2.5.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation("androidx.room:room-ktx:$room_version")
+
+    //okhttp
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
 }
